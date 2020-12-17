@@ -1,0 +1,100 @@
+@import "../components/_button";
+@import "../components/_border";
+.detail__background-items{
+  padding: 8rem 0;
+  max-width: 100%;
+  @media screen and (min-width:500px) and (max-width:1353px){
+    text-align: center;
+  }
+  &--1{
+    min-width:calc((100% + 3rem)/2);
+    float: left;
+    @include clearfix;
+    @media screen and (min-width:500px) and (max-width:1353px){
+      min-width:80%;
+      text-align: center;
+    }
+    .detail_image{
+      width:90%;
+      height:40%;
+      min-width: 33rem;
+      min-height: 26rem;
+      max-width: 65rem;
+      max-height: 40rem;
+    }
+  }
+  &--2{
+    display: inline-block;
+    min-width:calc((100% - 3rem)/2);
+    width: 47%;
+    @media screen and (min-width:374px) and (max-width:500px){
+
+      width: 100%;
+      position: relative;
+      padding-left: 0;
+    }
+    @media screen and (min-width:500px) and (max-width:1353px){
+      width: 85%;
+      text-align: left;
+    }
+    padding-left: 3rem;
+    margin-top: 5rem;
+    .detail_content{
+      &--name{
+        padding-bottom: 2.5rem;
+        font-size: 4rem;
+      }
+      &__list{
+        list-style: none;
+        height: 10rem;
+        width: 100%;
+          &--info-tab-1{
+            display: inline-block;
+            min-width:calc((100% - 3rem)/2);
+            @media screen and (min-width:374px) and (max-width:500px){
+              width: 100%;
+            }
+            @media screen and (min-width:500px) and (max-width:1353px){
+              min-width:calc((100% + 10rem)/2);
+            }
+          }
+          &--info-tab-2{
+          display: inline-block;
+          float: right;
+          position: absolute;
+          @media screen and (min-width:374px) and (max-width:500px){
+            padding-top: 3rem;
+            width: 100%;
+            position: relative;
+          }
+          @include clearfix;
+              }
+            &--info-tab-3{
+              display: inline-block;
+              @media screen and (min-width:374px) and (max-width:1353px){
+                margin-top: 4rem;
+                width: 100%;
+                position: relative;
+              }
+            }
+          }
+      }
+     }
+    }
+    [class*="detail_content__list--info__title"]{
+        margin-bottom: 1.5rem ;
+      .title{
+        display: inline-block;
+        font-size: 1.5rem;
+        margin-right: .5rem;
+            }
+      .detail_content__list--info__title-items{
+        display: inline-block;
+        width: calc(100% - 14rem);
+        @media screen and (min-width:374px) and (max-width:1353px){
+          width: 100%;
+        }
+        float: right;
+        @include clearfix;
+      }
+    }

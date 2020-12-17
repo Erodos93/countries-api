@@ -1,0 +1,15 @@
+.button__area{
+  &--back{
+
+    appearance:none;
+    border: none;
+    @include  design-form;
+
+    width: 12rem;
+    height: 4rem;
+    cursor: pointer;
+  }
+  &:hover{
+    
+  }
+}

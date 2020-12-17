@@ -1,0 +1,9 @@
+.detail__background{
+
+height: 75rem;
+padding: $content-padding;
+@media screen and (min-width:374px) and (max-width:1353px){
+height: 112rem;
+}
+
+}

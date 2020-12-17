@@ -1,0 +1,25 @@
+.searchbar{
+  display: inline-block;
+  min-width:calc((100% - 8rem) /2);
+
+  &__input{
+    height:$default-height-form;
+    font-size: 1.8rem;
+    width: calc((100% + 15rem) /2);
+    @media screen and (min-width: 375px ) and (max-width: 700px ) {
+        width: calc((100% + 48rem) /2);
+    }
+    max-width: 45rem;
+    @include design-form;
+    font-size: $heading-secondary;
+    padding: 0 0 0 4rem;
+    text-indent: 4rem;
+
+
+    &:focus{
+       &::placeholder{
+        color: transparent;
+    }
+  }
+  }
+}

@@ -1,0 +1,54 @@
+
+.option_form{
+  width:calc((100% - 5rem)/2);
+  display: inline-block;
+  vertical-align:middle;
+  position: absolute;
+  height: 23rem;
+  right: 14.5rem;
+  @media screen and (min-width: 375px ) and (max-width: 700px ) {
+
+    width: calc((100% + 8rem) /2);
+    top: 15rem;
+    left: 0;
+    margin-top: 3rem;
+  }
+  &__select{
+    width:20rem;
+    height: 5rem;
+    text-align: center;
+    float: right;
+     @include design-form;
+     padding: 0;
+     cursor: pointer;
+
+    @include clearfix;
+    &--default-value{
+    width: calc((100% - 5rem));
+    padding-top: 1.6rem;
+    display: inline-block;
+    border-radius: 2px;
+    float: left;
+    @include clearfix;
+    }
+    &--button{
+      width: 5rem;
+      height: inherit;
+      float: right;
+      appearance:none;
+      background-repeat: no-repeat;
+      background-position: 15px center;
+      background-size: 1rem;
+      @include clearfix;
+    }
+  }
+  &__list{
+    width: 20rem;
+    line-height: 3rem;
+
+    &--item{
+      list-style: none;
+      cursor: pointer;
+    }
+  }
+}

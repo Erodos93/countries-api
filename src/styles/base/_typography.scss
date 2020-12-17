@@ -1,0 +1,22 @@
+body{
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: $default-font-size;
+}
+
+.card{
+  font-size: $heading-secondary;
+  [class^="card__info--"]{
+    span{
+      font-size: 1.5rem;
+    }
+    h3{
+      font-weight:800;
+    }
+    font-size: $heading-primary;
+    line-height: 4rem;
+    &:not(:first-child){
+      font-size: $heading-secondary;
+      line-height: 2.5rem;
+    }
+  }
+}

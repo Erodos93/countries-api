@@ -1,0 +1,19 @@
+export const options=[
+{
+  value:"Africa",
+  content:"Africa"
+},
+{
+  value:"Americas",
+  content:"Americas"
+},
+{
+  value:"Asia",
+  content:"Asia"
+},{
+  value:"Europe",
+  content:"Europe"
+},{
+  value:"Oceania",
+  content:"Oceania"
+}];

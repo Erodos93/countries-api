@@ -1,0 +1,17 @@
+@mixin clearfix{
+  &::after{
+
+    content:"";
+    display: table;
+  }
+}
+
+@mixin design-form{
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  &:hover,&:focus,&:active{
+    outline:none;
+  }
+
+}

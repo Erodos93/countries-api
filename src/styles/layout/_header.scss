@@ -1,0 +1,15 @@
+@import "../components/_switch";
+.header{
+  width: 100%;
+  padding:$header-padding;
+
+  &__title{
+    display: inline-block;
+    
+    min-width:calc((100% + 10rem) / 2);
+    font-size: $heading-primary;
+  }
+
+
+  @include clearfix();
+}

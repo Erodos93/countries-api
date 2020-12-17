@@ -1,0 +1,21 @@
+.option_form{
+  &__list{
+    height: 0;
+    transition: height .2s ease .3s;
+    &--items{
+      opacity:0;
+      transition: all .2s ease-out .3s ;
+    }
+  }
+}
+
+.button__area{
+  &--back{
+    &:hover{
+
+    box-shadow: 1px 1px 2px;
+    transform: scale(1.1);
+  }
+  }
+
+}
