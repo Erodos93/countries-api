@@ -1,34 +1,37 @@
 
 @import "../components/_item-card";
 .country-list{
-  min-height: calc((32rem + 8rem)*2);
-  padding: $content-padding;
-  .country-list__background{
 
-    @media screen and (min-width: 1090px )and( max-width:1440px){
+  .country-list__cards{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: left;
+    padding-left: 6.5rem;
+  }
+  .loading-item{
+      margin: 10% 40%;
+      width: 15rem;
+      height: 15rem;
+      border: red solid 1rem;
+      border-radius: 100%;
+      padding: 6rem 3rem;
+      animation: loading 2s infinite;
+  }
+}
+@keyframes loading {
 
-      min-height: 120vh;
-    }
+  50% {
+    width:0rem;
+    height: 0rem;
+    padding: 0;
+    border: blue solid 1px;
+    font-size: 0;
+  }
+  100%{
+    width: 15rem;
+    height: 15rem;
+    padding: 6rem 3rem;
+  }
 
-  }
-  @media screen and (min-width: 1440px )and( max-width:1600px){
-
-    min-height: 80rem !important;
-  }
-  @media screen and (min-width: 826px )and( max-width:1090px){
-    padding-left: 16%;
-  }
-  @media screen and (min-width: 732px )and( max-width:826px){
-    padding-left: 30%;
-  }
-  @media screen and (min-width: 500px )and( max-width: 732px){
-    padding-left: 25%;
-  }
-  @media screen and (min-width: 450px )and( max-width: 500px){
-    padding-left: 20%;
-  }
-  @media screen and (min-width: 375px )and( max-width:450px){
-    padding-left: 13%;
-
-  }
 }

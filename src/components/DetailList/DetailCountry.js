@@ -1,74 +1,59 @@
 import React from "react";
-import {borders} from "../../data/borderNamesOfCountries"
+import useEditPopulation from "../../hooks/useEditPopulation";
+import {detailListObject} from "./detailListObject";
 import BackButton from "./BackButton";
+import DetailBorderOfCountry from "./DetailBorderOfCountry";
+import ListItems from "./ListItems";
+import ListItem from "./ListItem";
 import {useParams} from "react-router-dom";
 
 
 const DetailCountry=({onBackToParent,heightList,state,selectState})=>{
-
-console.log(borders);
-
-
 let {name,nativeName,region,subregion,capital,population,alpha,topLevelDomain,currencies,languages,border}=useParams();
-console.log(border);
-const arrayBorder=border.split(" ");
-console.log(arrayBorder);
-const urlFlag="https://restcountries.eu/data/"+alpha+".svg"
+const[editPopulation]=useEditPopulation(population);
+const listValue=detailListObject(nativeName,
+                              editPopulation,
+                              region,
+                              subregion,
+                              capital,
+                              topLevelDomain,
+                              languages,
+                              currencies);
+const renderList=(listValue)=>{
+  return(
+      <ListItems nameClass={"detail_content__list"}>
+      {listValue.map((item,index)=>{
+        return  (
+        <ListItem key={index}
+        classNameList={`detail_content__list--info__title ${index%5===0?"end-col":""}`}
+        classNameTitle="title"
+        nameTitle={item.title}
+        listValue={item.value}
+        />
+      )
+      })
+    }
+      </ListItems>
+  )
+}
+const urlFlag="https://restcountries.eu/data/"+alpha+".svg";
 return (
-<section className={`detail__background ${state?" light-background dark-text":" dark-background light-text"}`} /*style={heightList}*/>
+<section className={`detail__background ${state?" light-background dark-text":" dark-background light-text"}`} >
       <BackButton state={state} selectState={selectState}/>
-
-
-      <div className="detail__background-items" >
-              <div className="detail__background-items--1">
+         <div className={`detail__background-items row ${state?" light-background dark-text":" dark-background light-text"}`}>
+              <div className="detail__background-items--1 ">
               <img className="detail_image" alt={name} src={urlFlag}/>
               </div>
-          <div className={`detail__background-items--2`}>
+          <div className={`detail__background-items--2  ${state?" light-background dark-text":" dark-background light-text"}`}>
           <h2 className="detail_content--name">{name}</h2>
-
-          <ul className="detail_content__list">
-          <div className="detail_content__list--info-tab-1">
-          <li className="detail_content__list--info__title" ><h4 className="title">Native Name:</h4>{nativeName} </li>
-          <li className="detail_content__list--info__title"><h4 className="title">Population: </h4>{population}</li>
-          <li className="detail_content__list--info__title"><h4 className="title"> Region: </h4>{region} </li>
-          <li className="detail_content__list--info__title"><h4 className="title">Sub Region: </h4>{subregion} </li>
-          <li className="detail_content__list--info__title"><h4 className="title">Capital: </h4>{capital} </li>
-          </div>
-          <div className="detail_content__list--info-tab-2">
-          <li className="detail_content__list--info__title"><h4 className="title">Top Level Domain: </h4>{topLevelDomain} </li>
-          <li className="detail_content__list--info__title"><h4 className="title">Languages: </h4> {languages}</li>
-          <li className="detail_content__list--info__title"><h4 className="title">Currencies: </h4> {currencies}</li>
-          </div>
-          <div className="detail_content__list--info-tab-3">
-          <li className="detail_content__list--info__title"><h4 className="title">Border Countries:  </h4>
-          <div className="detail_content__list--info__title-items">
-          {arrayBorder.map((urlBorder,index)=>{
-            let output="";
-            borders.map((inputObject,index)=>{
-              if (urlBorder===inputObject.alpha3Code) {
-                output+=inputObject.name;
-                return output;
-              }else{
-                return "";
-              }
-            })
-            return output?<button key={index} className={`detail_content__list--info__button ${state?" light-element dark-text":" dark-element light-text"}`}>
-            {output}
-            </button>:<div></div>
-          })
-        }
-        </div>
-          </li>
-           </div>
-
-          </ul>
-          </div>
+          {renderList(listValue)}
+          <DetailBorderOfCountry
+          border={border}
+          state={state}
+          />
+      </div>
 </div>
-
-
   </section>
 );
-
 }
-
 export default DetailCountry;

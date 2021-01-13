@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 
-const newContext= React.createContext();
+const searchWordContext= React.createContext();
 
 export const SearchWordStore = ({children})=>{
    const [term,setTerm]=useState({
@@ -9,9 +9,9 @@ export const SearchWordStore = ({children})=>{
   const searchBar=(value)=>{
     setTerm({term:value})
   }
-  return <newContext.Provider value={{...term,searchBar:searchBar}}>
+  return <searchWordContext.Provider value={{...term,searchBar:searchBar}}>
   {children}
-  </newContext.Provider>
+  </searchWordContext.Provider>
 }
 
-export default newContext;
+export default searchWordContext;

@@ -1,15 +1,12 @@
 @import "../components/_switch";
 .header{
-  width: 100%;
-  padding:$header-padding;
-
+  width: 100% ;
+@include headerPadding;
+@include resoled(mobile){
+  padding:2.5rem 2.5rem;
+}
   &__title{
-    display: inline-block;
-    
-    min-width:calc((100% + 10rem) / 2);
     font-size: $heading-primary;
   }
 
-
-  @include clearfix();
 }

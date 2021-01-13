@@ -1,24 +1,28 @@
 .searchbar{
-  display: inline-block;
-  min-width:calc((100% - 8rem) /2);
-
+  .label-img{
+    position:relative;
+    .img-lupa{
+      width: 18px;
+      height: 40px;
+      position: absolute;
+      bottom:-15px;
+      left: 30px;
+    }
+  }
   &__input{
     height:$default-height-form;
     font-size: 1.8rem;
-    width: calc((100% + 15rem) /2);
-    @media screen and (min-width: 375px ) and (max-width: 700px ) {
-        width: calc((100% + 48rem) /2);
-    }
+    width: 100%;
+    min-width: 36.5rem;
     max-width: 45rem;
     @include design-form;
     font-size: $heading-secondary;
-    padding: 0 0 0 4rem;
+    padding: 0  4rem;
     text-indent: 4rem;
-
-
-    &:focus{
+    &:focus,&:active{
        &::placeholder{
-        color: transparent;
+      color: rgba(255,0,0,0);
+
     }
   }
   }

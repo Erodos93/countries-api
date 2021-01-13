@@ -1,104 +1,42 @@
-import React  from "react";
+import React,{useContext}  from "react";
 import {useSelector} from "react-redux";
-
+import searchWordContext from "../contexts/SearchWordContext";
+import { Link} from "react-router-dom";
 import Country from "./Country";
 
-import { Link} from "react-router-dom";
-import _ from "lodash";
 
-const CountryList=({state})=>{
-
-//
-  let stringLevelDomain,text;
-  let objectArray=[];
-  const nothing="/noborder";
-
-  const arrayToString=(array)=>{
-    stringLevelDomain="";
-   if(array){
-    array.forEach((item, i) => {
-    if (i===array.length-1) {
-      stringLevelDomain+=item;
-    } else {
-    stringLevelDomain+=item+" ";
-    }
-  });
-
-
-  return stringLevelDomain;
-}
-}
-const objectToString =(object)=>{
-  objectArray=[];
-  text="";
-  object.forEach((item,i)=>{
-    objectArray.push(item.name);
-  })
-
-  objectArray.forEach((item,i)=>{
-    if (!item) {
-      return;
-    }
-     if (i!==0) {
-       if (!item) {
-         return;
-       }else{
-         text+=" , "+item;
-       }
-  }else{
-      text+=item;
-  }
-  })
-
-  return text;
-}
-
+const CountryList=({state,heightList})=>{
 const countries= useSelector(state => state.countryName);
+  const context=useContext(searchWordContext);
 
-     const countCard=_.size(countries);
-     const heightSize=countCard<=8? (12) * countCard: (14) * 8;
-     const heightList={
-       minHeight:heightSize+"rem"
-
-     }
-
+const renderCountryPlace=()=>{
+  let {currencies,languages,topLevelDomain,border} = "";
+console.log(countries);
+  return ( Object.keys(countries).length===0&&context.term.length>1?<div className="loading-item">Loading...</div>:<div className="country-list__cards" >
+  {countries.map((country,index) => {
+    currencies=country.currencies.map((currency,index)=>currency.name).toString();
+    languages=country.languages.map((language,index)=>language.name).toString();
+    topLevelDomain=country.topLevelDomain.toString();
+    border=country.borders.toString();
+    return index<8?(
+      <Link key={index}
+      to={`/${country.name}/${country.nativeName}/${country.population}/${country.capital}/${country.alpha3Code.toLowerCase()}/${country.region}/${country.subregion}/${ topLevelDomain}/${currencies}/${languages}${border?"/"+border:"/noborder"}`}>
+      <Country
+      country = { country }
+      population={country.population}
+      state={state}
+      index={index}>
+      <img className="card__flag" alt={country.name} src={`${country.flag}`}/>
+      </Country>
+      </Link>
+    ):<div key={index}></div>})}
+  </div>
+)
+}
    return (
-     <section className={`country-list ${state?" light-background dark-text":" dark-background light-text"}`} style={heightList}>
-     <div className={`country-list__background ${state?" light-background dark-text":" dark-background light-text"}`}>
-
-     {countries.map((country,index) => {
-
-     const topLevelDomain=arrayToString(country.topLevelDomain);
-    const currency= objectToString(country.currencies);
-    const languages= objectToString(country.languages);
-    const border=arrayToString(country.borders);
-
-       return index<8?(
-         <Link key={index}
-         to={`/${country.name}/${country.nativeName}/${country.population}/${country.capital}/${country.alpha3Code.toLowerCase()}/${country.region}/${country.subregion}/${ topLevelDomain}/${currency}/${languages}${border?"/"+border:nothing}`}>
-
-         <Country
-         country = { country }
-         population={country.population}
-         state={state}
-         index={index}>
-         <img className="card__flag" alt={country.name} src={`${country.flag}`}/>
-         </Country>
-         </Link>
-       ):<div key={index}></div>
-     })}
-     </div>
-
+     <section className={`country-list  ${state?" light-background dark-text":" dark-background light-text"}`} style={{height:countries&&context.term.length>1?80+"vh":""}} >
+     {renderCountryPlace()}
      </section>
    );
-
-
 }
 export default CountryList;
-
-// /${stringCurrencies}/${country.languages}
-
-
-
-// <Link key={index}
-// to={`/${country.name}`}>

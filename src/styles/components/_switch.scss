@@ -1,8 +1,7 @@
 .header__switch{
-  display: inline-block;
- min-width:calc((100% - 105rem) / 2);
   font-size: $heading-secondary;
   float: right;
+  text-align: right;
   @include clearfix;
   ion-icon{
     display: inline-block;

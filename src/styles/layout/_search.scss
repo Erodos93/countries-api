@@ -1,5 +1,8 @@
 @import "./components/_searchbar";
 @import "./components/_selectForm";
 .search_place{
-  max-width: $max-width;
+  @include searchPadding;
+  @include resoled(mobile){
+    padding:2.5rem 2.5rem;
+  }
 }

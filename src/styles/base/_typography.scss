@@ -5,18 +5,27 @@ body{
 
 .card{
   font-size: $heading-secondary;
-  [class^="card__info--"]{
+  .card__info{
+    line-height: 2;
     span{
+      @include resoled(mobile){
+        font-size: 1.8rem;
+      }
       font-size: 1.5rem;
+      font-weight: 100;
     }
-    h3{
-      font-weight:800;
+
+    h2{
+      font-size: 1.5rem;
+      @include resoled(mobile){
+        font-size: 1.8rem;
+      }
     }
-    font-size: $heading-primary;
-    line-height: 4rem;
-    &:not(:first-child){
-      font-size: $heading-secondary;
-      line-height: 2.5rem;
+    &--name{
+      line-height: 1;
+      font-size: 2.1rem;
     }
+
+
   }
 }

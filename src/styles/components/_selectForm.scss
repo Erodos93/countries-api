@@ -1,22 +1,16 @@
 
 .option_form{
-  width:calc((100% - 5rem)/2);
-  display: inline-block;
   vertical-align:middle;
-  position: absolute;
-  height: 23rem;
-  right: 14.5rem;
-  @media screen and (min-width: 375px ) and (max-width: 700px ) {
 
-    width: calc((100% + 8rem) /2);
-    top: 15rem;
-    left: 0;
-    margin-top: 3rem;
+  @include resoled(tab-land){
+    margin-top: 4.5rem;
   }
+
   &__select{
     width:20rem;
     height: 5rem;
-    text-align: center;
+    position: relative;
+    text-align: left;
     float: right;
      @include design-form;
      padding: 0;
@@ -25,7 +19,7 @@
     @include clearfix;
     &--default-value{
     width: calc((100% - 5rem));
-    padding-top: 1.6rem;
+    padding: 1.6rem 2rem;
     display: inline-block;
     border-radius: 2px;
     float: left;
@@ -44,8 +38,13 @@
   }
   &__list{
     width: 20rem;
-    line-height: 3rem;
+    line-height: 3.5rem;
+    z-index: 1000;
+    border-radius: 5px;
+    &--items{
+      padding: 1rem 0 0 1rem;
 
+    }
     &--item{
       list-style: none;
       cursor: pointer;

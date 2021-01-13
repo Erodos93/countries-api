@@ -1,22 +1,36 @@
 .card {
-  min-width:calc((100% - 10rem)/ 5);
+
+  min-width:calc(100% / 10);
   border-radius: 5px;
-  height: 32rem;
+  max-height: 45rem;
   margin-bottom: 6rem;
+  margin-right: 5rem;
+  padding-bottom: 2rem;
+  @include resoled(mobile){
+    margin-right: 0rem;
+  }
+
   display: inline-block;
   cursor: pointer;
   &__flag {
-    width:280px;
-    height: 160px;
+    width:275px;
+    height: 150px;
     object-fit:cover;
     border-radius: 5px 5px 0 0;
   }
   &__tab{
     list-style: none;
-    padding: 1rem 0 0 2rem;
+    padding: 1.5rem 0 0 3.5rem;
 
-    [class^="card__info--"]{
-      h4{
+    .card__info{
+      &--title{
+        margin: 1.5rem 0;
+      }
+      &--name{
+        width:20rem;
+
+      }
+      h2{
         display: inline-block;
       }
       padding-bottom: 2rem;
