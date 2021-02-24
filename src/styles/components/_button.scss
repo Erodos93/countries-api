@@ -4,7 +4,7 @@
     border: none;
     @include  design-form;
 
-    @include resoled(tab-land){
+    @include response(tab-land){
       margin-top: 2rem;
     };
     margin-top: 4rem;

@@ -17,3 +17,39 @@
   }
 
 }
+.country-list{
+.loading-item{
+      margin: 5% 40%;
+      @include response(mobile){
+        margin: 5% 35%;
+      }
+      width: 15rem;
+      height: 15rem;
+
+      border-radius: 100%;
+      padding: 6rem 3rem;
+
+      backface-visibility: hidden;
+      animation: loading 2s infinite;
+
+
+  }
+}
+
+@keyframes loading {
+
+
+  0%{
+      border: red solid 1rem;
+
+  }
+  50% {
+    border: blue solid 1rem;
+
+  }
+  100%{
+
+      border: green solid 1rem;
+
+  }
+}

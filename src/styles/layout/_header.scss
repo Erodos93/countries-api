@@ -2,7 +2,7 @@
 .header{
   width: 100% ;
 @include headerPadding;
-@include resoled(mobile){
+@include response(mobile){
   padding:2.5rem 2.5rem;
 }
   &__title{

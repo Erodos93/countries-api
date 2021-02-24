@@ -2,7 +2,7 @@
 .option_form{
   vertical-align:middle;
 
-  @include resoled(tab-land){
+  @include response(tab-land){
     margin-top: 4.5rem;
   }
 

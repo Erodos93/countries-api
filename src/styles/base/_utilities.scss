@@ -86,7 +86,7 @@
   padding: $web-padding;
   display: flex;
 
-  @include resoled(tab-land){
+  @include response(tab-land){
     padding: $mobile-padding;
     flex-flow: column;
     align-items: flex-start;

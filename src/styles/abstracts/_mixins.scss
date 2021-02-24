@@ -15,21 +15,21 @@
 
 }
 @mixin headerPadding{
-  padding:2.5rem 6rem;
+  padding:2.5rem 14.7rem 2.5rem 12.5rem;
 }
 @mixin searchPadding{
-  padding: 5rem 6rem;
+  padding: 5rem 14.7rem 5rem 12.5rem;
 }
-@mixin resoled($breakpoint){
+@mixin response($breakpoint){
  @if $breakpoint == mobile{
 
-    @media (max-width:42.76em){    //628px
+    @media (max-width:36.875em){    //628px
       @content;
     }
   }
   @if $breakpoint == tab-land{
 
-      @media (max-width:64em){ 
+      @media (max-width:64em){
       @content;
     }
   }

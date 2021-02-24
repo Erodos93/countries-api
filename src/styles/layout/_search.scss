@@ -2,7 +2,7 @@
 @import "./components/_selectForm";
 .search_place{
   @include searchPadding;
-  @include resoled(mobile){
+  @include response(mobile){
     padding:2.5rem 2.5rem;
   }
 }

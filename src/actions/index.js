@@ -13,15 +13,24 @@ export const fetchData = () =>async dispatch=>{
 export const filterDataByName = value => async (dispatch,getState)=>{
 await dispatch(fetchData());
 await jsonCountryInfo.get(`/name/${value}`).then(res=>{
+  console.log(res);
+  if (res.status!==404) {
 
-  const data = getState().countryName;
-  const filterData=useFilterData(res.data,value);
-  dispatch({
-    type:"FILTER_NAMES_BY_COUNTRY",
-    payload:value.length>0?filterData:data
-  });
+    const data = getState().countryName;
+    const filterData=useFilterData(res.data,value);
+    dispatch({
+      type:"FILTER_NAMES_BY_COUNTRY",
+      payload:value.length>0?filterData:data
+    });
+  } else {
+    dispatch({
+      type:"FILTER_NAMES_BY_COUNTRY",
+      payload:[]
+    });
+  }
 })
 .catch(error=>{
+  // console.log(error);
   dispatch({
     type:"FILTER_NAMES_BY_COUNTRY",
     payload:[]
