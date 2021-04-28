@@ -12,7 +12,11 @@ useEffect(()=>{
       switch(!region){
         case true:
         console.log("fetchData");
-        dispatch(fetchData());
+        const time=setTimeout(()=>{
+          dispatch(fetchData());
+
+        },1);
+        console.log(time);
         break;
         case false:
         console.log("filterDataByRegion");

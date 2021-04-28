@@ -35,22 +35,38 @@
   position: absolute;
   top: 6.5rem;
 }
-#scroll-up-list{
-  padding: 0rem 2rem;
-  height: 0rem ;
-}
-#scroll-down-list{
-  padding: 1rem 2rem ;
-  height: 21.8rem ;
+#close-list{
 
+  height: 0rem ;
+  opacity: 0;
+  visibility: hidden;
+  transition: all  .3s;
+  // animation: dropdown-close forwards .5s;
+}
+#open-list{
+
+  height:27.5rem ;
+  opacity: 1;
+
+  visibility: visible;
+  transition: all  .3s;
 }
 .isVisible{
-  opacity:1 !important;
-  transform: scaleY(1);
+  animation: dropdown-open forwards 0.3s;
+    display:block !important;
+    visibility: visible !important;
+    &:hover{
+      background-color: transparent;
+    }
 }
 .isInvisible{
-  opacity:0 !important;
-  transform: scaleY(0);
+  animation: dropdown-close forwards 0.3s;
+  display:block !important;
+  color: transparent;
+  &:hover{
+    background-color: transparent;
+  }
+    // visibility: hidden !important;
 }
 
 .dark__input{

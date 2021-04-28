@@ -16,7 +16,7 @@ return(
     selectText={select}
     defaultText={"Filter by Region"}/>
     <SelectButton  className={`option_form__select--button ${state?" dark-arrow":" white-arrow"}`}/>
-   <SelectList onSelectOption={onSelectOption} onScroll={()=>setScroll(!scroll)} scroll={scroll} />
+   <SelectList onSelectOption={onSelectOption} onScroll={()=>setScroll(!scroll)} scroll={scroll} state={state} />
     </SelectForm>
 
   </div>

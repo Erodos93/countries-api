@@ -1,13 +1,13 @@
-.option_form{
-  &__list{
-    height: 0;
-    transition: height .2s ease .3s;
-    &--items{
-      opacity:0;
-      transition: all .2s ease-out .3s ;
-    }
-  }
-}
+// .option_form{
+//   &__list{
+//     height: 0;
+//     transition: height .2s ease .3s;
+//     &--items{
+//       opacity:0;
+//       transition: opacity .2s ease-out .3s ;
+//     }
+//   }
+// }
 
 .button__area{
   &--back{
@@ -51,5 +51,37 @@
 
       border: green solid 1rem;
 
+  }
+}
+@keyframes dropdown-close {
+  0% {
+    opacity: 1;
+    top: 0px;
+  }
+30%{
+top:-50px;
+   }
+   40%{
+      opacity: 0;
+   }
+  100% {
+top: -150px;
+
+  }
+}
+@keyframes dropdown-open {
+  0% {
+    opacity: 0;
+      top: -100px;
+  }
+  30%{
+    top: -15px;
+     }
+     90%{
+        opacity: .6;
+     }
+  100% {
+    opacity: 1;
+  top: 0px;
   }
 }

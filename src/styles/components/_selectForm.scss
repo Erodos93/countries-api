@@ -38,16 +38,28 @@
   }
   &__list{
     width: 20rem;
+    height:27.5rem;
     line-height: 3.5rem;
     z-index: 1000;
     border-radius: 5px;
-    &--items{
-      padding: 1rem 0 0 1rem;
+    visibility: hidden;
 
-    }
+    display:block;
+
     &--item{
       list-style: none;
+      // transform: translateY(-300%);
+      // visibility: hidden;
+       display: none;
+      opacity: 0;
+      position: relative;
+      top: 0;
+      padding:1rem 0;
+      text-align: center;
       cursor: pointer;
+      &:hover{
+        background-color: $color-hover;
+      }
     }
   }
 }

@@ -5,17 +5,16 @@ import useFilterData from "../hooks/useFilterData";
 
 export const fetchData = () =>async dispatch=>{
   const response = await jsonCountryInfo.get(`/all`);
-
   dispatch({
     type:"FETCH_DATA",
     payload:response.data});
   }
+  
 export const filterDataByName = value => async (dispatch,getState)=>{
 await dispatch(fetchData());
 await jsonCountryInfo.get(`/name/${value}`).then(res=>{
   console.log(res);
   if (res.status!==404) {
-
     const data = getState().countryName;
     const filterData=useFilterData(res.data,value);
     dispatch({
@@ -30,14 +29,13 @@ await jsonCountryInfo.get(`/name/${value}`).then(res=>{
   }
 })
 .catch(error=>{
-  // console.log(error);
   dispatch({
     type:"FILTER_NAMES_BY_COUNTRY",
     payload:[]
   });
 });
-
 }
+
 
 export const filterDataByRegion = region =>async dispatch=>{
   const response= await jsonCountryInfo.get(`/region/${region}`);
