@@ -1,63 +1,60 @@
+.option_form {
+  vertical-align: middle;
 
-.option_form{
-  vertical-align:middle;
-
-  @include response(tab-land){
+  @include response(tab-land) {
     margin-top: 4.5rem;
   }
 
-  &__select{
-    width:20rem;
+  &__select {
+    width: 20rem;
     height: 5rem;
     position: relative;
     text-align: left;
     float: right;
-     @include design-form;
-     padding: 0;
-     cursor: pointer;
+    @include design-form;
+    padding: 0;
+    cursor: pointer;
 
     @include clearfix;
-    &--default-value{
-    width: calc((100% - 5rem));
-    padding: 1.6rem 2rem;
-    display: inline-block;
-    border-radius: 2px;
-    float: left;
-    @include clearfix;
+    &--default-value {
+      width: calc((100% - 5rem));
+      padding: 1.6rem 2rem;
+      display: inline-block;
+      border-radius: 2px;
+      float: left;
+      @include clearfix;
     }
-    &--button{
+    &--button {
       width: 5rem;
       height: inherit;
       float: right;
-      appearance:none;
+      appearance: none;
       background-repeat: no-repeat;
       background-position: 15px center;
       background-size: 1rem;
       @include clearfix;
     }
   }
-  &__list{
+  &__list {
     width: 20rem;
-    height:27.5rem;
+    height: 27.5rem;
     line-height: 3.5rem;
     z-index: 1000;
     border-radius: 5px;
     visibility: hidden;
 
-    display:block;
+    display: block;
 
-    &--item{
+    &--item {
       list-style: none;
-      // transform: translateY(-300%);
-      // visibility: hidden;
-       display: none;
+      display: none;
       opacity: 0;
       position: relative;
       top: 0;
-      padding:1rem 0;
+      padding: 1rem 0;
       text-align: center;
       cursor: pointer;
-      &:hover{
+      &:hover {
         background-color: $color-hover;
       }
     }

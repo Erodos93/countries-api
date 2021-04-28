@@ -47,9 +47,8 @@
 
   height:27.5rem ;
   opacity: 1;
-
   visibility: visible;
-  transition: all  .3s;
+  transition: opacity .3s,height .3s;
 }
 .isVisible{
   animation: dropdown-open forwards 0.3s;
@@ -66,7 +65,7 @@
   &:hover{
     background-color: transparent;
   }
-    // visibility: hidden !important;
+
 }
 
 .dark__input{

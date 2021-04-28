@@ -1,56 +1,36 @@
-// .option_form{
-//   &__list{
-//     height: 0;
-//     transition: height .2s ease .3s;
-//     &--items{
-//       opacity:0;
-//       transition: opacity .2s ease-out .3s ;
-//     }
-//   }
-// }
-
-.button__area{
-  &--back{
-    &:hover{
-    transform: scale(1.1);
+.button__area {
+  &--back {
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-  }
-
 }
-.country-list{
-.loading-item{
-      margin: 5% 40%;
-      @include response(mobile){
-        margin: 5% 35%;
-      }
-      width: 15rem;
-      height: 15rem;
+.country-list {
+  .loading-item {
+    margin: 5% 40%;
+    @include response(mobile) {
+      margin: 5% 35%;
+    }
+    width: 15rem;
+    height: 15rem;
 
-      border-radius: 100%;
-      padding: 6rem 3rem;
+    border-radius: 100%;
+    padding: 6rem 3rem;
 
-      backface-visibility: hidden;
-      animation: loading 2s infinite;
-
-
+    backface-visibility: hidden;
+    animation: loading 2s infinite;
   }
 }
 
 @keyframes loading {
-
-
-  0%{
-      border: red solid 1rem;
-
+  0% {
+    border: red solid 1rem;
   }
   50% {
     border: blue solid 1rem;
-
   }
-  100%{
-
-      border: green solid 1rem;
-
+  100% {
+    border: green solid 1rem;
   }
 }
 @keyframes dropdown-close {
@@ -58,30 +38,29 @@
     opacity: 1;
     top: 0px;
   }
-30%{
-top:-50px;
-   }
-   40%{
-      opacity: 0;
-   }
+  30% {
+    top: -50px;
+  }
+  40% {
+    opacity: 0;
+  }
   100% {
-top: -150px;
-
+    top: -150px;
   }
 }
 @keyframes dropdown-open {
   0% {
     opacity: 0;
-      top: -100px;
+    top: -100px;
   }
-  30%{
+  30% {
     top: -15px;
-     }
-     90%{
-        opacity: .6;
-     }
+  }
+  90% {
+    opacity: 0.6;
+  }
   100% {
     opacity: 1;
-  top: 0px;
+    top: 0px;
   }
 }
