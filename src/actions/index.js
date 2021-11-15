@@ -4,7 +4,7 @@ import useFilterData from "../hooks/useFilterData";
 
 
 export const fetchData = () =>async dispatch=>{
-  const response = await jsonCountryInfo.get(`/all`);
+  const response = await jsonCountryInfo.get(`/all?3c267c46f88544700c8dee91ee211c65`);
   dispatch({
     type:"FETCH_DATA",
     payload:response.data});
@@ -12,7 +12,7 @@ export const fetchData = () =>async dispatch=>{
   
 export const filterDataByName = value => async (dispatch,getState)=>{
 await dispatch(fetchData());
-await jsonCountryInfo.get(`/name/${value}`).then(res=>{
+await jsonCountryInfo.get(`/name/${value}?3c267c46f88544700c8dee91ee211c65`).then(res=>{
   console.log(res);
   if (res.status!==404) {
     const data = getState().countryName;
@@ -38,7 +38,7 @@ await jsonCountryInfo.get(`/name/${value}`).then(res=>{
 
 
 export const filterDataByRegion = region =>async dispatch=>{
-  const response= await jsonCountryInfo.get(`/region/${region}`);
+  const response= await jsonCountryInfo.get(`/region/${region}?3c267c46f88544700c8dee91ee211c65`);
 
   dispatch({
   type:"FILTER_COUNTRY_BY_REGION",
